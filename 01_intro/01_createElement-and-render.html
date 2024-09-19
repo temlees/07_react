@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 리액트 개발에서 관례이자 약속이다
+    React는 spa 개발에 적합한 라이브러리 이며,
+    하나의 html 파일을 사용, 컴포넌트를 선택에 따라 랜더링한다
+    root가 랜더링 할 요소의 진입점이다. 
+    -->
+    
+    <script>
+        // React.createElement를 사용하여 엘리멘트를 만들 수 잇다
+        //첫 번째 인자 : 만드려는 element의 타입을 문자열로 정의
+        //두 번째 인자 : 만드는 elements 의 프로퍼티를 표현
+        //세 번쨰 인자 : element자식노드를 표현
+        //랜더링 과정에는 이 엘리멘트를 실제 dom엘리먼트로 변환
+
+        const greetingElement = React.createElement("h1",{class:greeting},"gello wourld")
+        const textElement = React.createElement("h3",{id:"name"},"안녕하세요")
+
+        ReactDOM.createRoot(document.getElementById("roor").render([greetingElement,textElement]));
+
+    </script>
+</body>
+</html>

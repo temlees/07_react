@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        const greetingElement = React.createElement("hi",{class:greeting},"gello wourld")
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+
+<script>
+/*
+    엘리먼트 : 요소 노드, 어트리뷰트 노드 텍스트 노드로 만들어지는 가상  dom개념
+    컴포넌트 : 엘리먼트를 반환하는 개념을 가진 화면ㅁ\ㅏㄱ
+*/
+
+//클래스형 컴포넌트
+// class Helloworld extends React.Component{
+//     render(){
+//         return React.createElement(
+//             "hi",
+//             {class : "greeting"}
+//             ,'Helloworld'
+//         )
+//     }
+// }
+
+//함수형 컴포넌트
+function Helloworld() {
+    return React.createElement("h1", { className: "greeting", id: "test" }, "hello world");
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(Helloworld));
+
+</script>
+</html>
