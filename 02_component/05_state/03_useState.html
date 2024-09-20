@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+<!-- use hooks로 인해 함수 컴포넌트에서도 state쓸 수 있게됨
+    리액트에서는 state가 변경되면 다시 랜더링 된다
+-->
+
+<div id="root"></div>
+<!-- 
+    useState
+    React 객체 내부에 존재하는 함수형 속성이다.
+    그래서 React.useState로 호출되어야한다.
+-->
+
+<script type="text/babel">
+    //구조분해 할당 
+    const{useState} = React;
+
+    function Say(){ 
+        const [message,setMassage] = useState("기본상태");
+        const [color,setColor] = useState("black");
+        const [backgroundColor,setbackgroundColor] =useState("black");
+
+        const onClickEnter =()=>setMassage("안녕하세요");
+        const onClickLeave =()=>setMassage("잘가세요");
+        const onClickColor =()=> (color=="red")?setColor("black"):setColor("red");
+    
+
+        return (
+            <>
+            <h1 style={{color,backgroundColor}}>{message}</h1>
+            <div>
+                    <button onClick={onClickEnter} >입장</button>
+                    <button onClick={onClickLeave}>퇴장</button>    
+                    <button onClick={onClickColor}>색변경</button>
+                    <button onClick={()=>setbackgroundColor("white")}>배경색 흰색</button>
+                    <button onClick={()=>setbackgroundColor("black")}>배경색 검은색</button>
+
+
+            </div>
+            </>
+        )
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<Say/>)
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <!-- 
+        setState 이후 특정작업 실행하기
+        실행 이후 특정한 작업을 실행하고 싶을때 두번쨰 인자로 콜백함수 전달하여 처리한다
+    -->
+    <script type="text/babel">
+        //클래스 필드 문법(생성자 없이 state 정의)
+        class Light extends React.Component{
+
+            state = {
+                isOn:false
+            };
+                //랜더함수 isOn을 구조분해할당으로 가져엄 랜더함수는 필수 이다
+            render(){
+                const {isOn} = this.state;
+
+                const style = {
+                    width : 200,
+                    height : 200,
+                    backgroundColor:isOn?"green":"red",
+                    transition:"0.25s"
+                }
+
+                return (
+                    <>
+                    <div style={style}></div>
+                    {/*  클릭시 setState로 isOn값을 바꿔서 넣어준다
+                        onClick={() => { ... }}:
+                        버튼이 클릭되면, 해당 이벤트가 발생해 내부의 화살표 함수가 실행됩니다.
+                        화살표 함수 안에서 this.setState 메서드가 호출됩니다.
+                        */}
+                    <button onClick={()=>{
+                        this.setState({isOn:!isOn,},
+                            ()=>console.log(isOn?"불이 켜졌습니다":"불이 꺼졌습니다.")
+                    )}}>{isOn?"on":"off"}</button>
+                    </>
+                )
+            }
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<Light/>)
+    </script>
+        
+</body>
+</html>
