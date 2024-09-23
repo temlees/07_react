@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const {useState} = React;
+
+        function App(){
+
+            const[names, setNames] = useState([
+                {id: 1, name: "이순신"},
+                {id: 2, name: "유관순"},
+                {id: 3, name: "홍길동"},
+            ]);
+
+            const [inputText,setInputText]=  useState("");
+            const [nextId,setNextId] = useState(4);
+
+            // 입력 이벤트
+            const onChangeHandler = e =>setInputText(e.target.value);
+
+            // 추가 클릭시 수행한다
+            const onClickHandler = ()=>{
+                const changeNames=names.concat({
+                    id:nextId,
+                    name:inputText
+                });
+                setNames(changeNames);
+                setNextId(nextId+1);
+                setInputText("");
+            }
+
+            const onRemove = (id) =>{
+                {/*filter 특정조건 만족시 담는다  여기선 클릭한 id와 같은 id는 빠지고 배열에 다시 넣는다*/}
+                const changeNames = names.filter(name => name.id !==id);
+                setNames(changeNames);
+            }
+
+            {/* namelist라는 배열을 새로만들어arr.map()함수를 이용해 리스트들을 태그에 넣어준다.
+                여기서 ames.map(name  => 의 name은 {name, id}요소를 합쳐서 임의로 만든 것이다
+                map,filter는 임의로 준 name에 요소들이 자동으로 담긴다
+                */}
+                
+            const nameList = names.map(name => {
+                return  ( <li key={name.id} onDoubleClick={()=>onRemove(name.id)}>{name.name}</li>)
+            });
+
+            return (
+                <>
+                    <input type="text"  value={inputText} onChange={onChangeHandler} />
+                    <button onClick={onClickHandler}>추가</button>
+                    <ul>
+                        {nameList}
+                    </ul>
+                </>
+            )
+
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+    </script>
+    
+</body>
+</html>
