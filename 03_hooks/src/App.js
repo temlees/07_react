@@ -15,6 +15,16 @@ import { UseMemoCompoent } from "./03_useMemo/03_performance-useMemo";
 import { LocationComponent } from "./03_useMemo/04_object-type-problem";
 import { NumCalculator } from "./03_useMemo/memoQuestion";
 import { SangPum } from "./03_useMemo/memoQuestion02";
+import CalBackProblem from "./04_Callback/01_problem";
+import { FunctionMemoization } from "./04_Callback/02_function-memorization";
+import { CallbackComponent } from "./04_Callback/03_components";
+import { CounterRef } from "./05_useRef/01problem";
+import { UseRefCounter } from "./05_useRef/02_useRef";
+import { LoginComponent } from "./05_useRef/03_inputRef";
+import { Board } from "./05_useRef/board";
+import Page from "./06_useContext/01_props-dribbling";
+import { ContextContainer } from "./06_useContext/02_useContext";
+import { HooksProblem } from "./07_custom-hooks/01_problem";
 
 
 function App() {
@@ -39,7 +49,17 @@ function App() {
      {/* <UseMemoCompoent/> */}
      {/* <LocationComponent/> */}
      {/* <NumCalculator/> */}
-     <SangPum/>
+     {/* <SangPum/> */}
+     {/* <CalBackProblem/> */}
+     {/* <FunctionMemoization/> */}
+     {/* <CallbackComponent/> */}
+     {/* <CounterRef/> */}
+     {/* <UseRefCounter/> */}
+     {/* <LoginComponent/> */}
+      <Board/> 
+     {/* <Page/> */}
+     {/* <ContextContainer/> */}
+     {/* <HooksProblem/> */}
     </>
   );
 }

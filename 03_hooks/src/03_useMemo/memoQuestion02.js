@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 
 export const SangPum =() =>{
@@ -16,16 +16,25 @@ export const SangPum =() =>{
 
     const [category,setCategory]=useState("");
 
-    const [result,setResult]=useState([]);
+  //  const [result,setResult]=useState([]);
 
-    useEffect(()=>{
-        if(category==""){
-            setResult([...list])
-        }else{
-            setResult(list.filter(item=>item.category === category))
+    // useEffect(()=>{
+    //     if(category==""){
+    //         setResult([...list])
+    //     }else{
+    //         setResult(list.filter(item=>item.category === category))
             
+    //     }
+    // },[category])
+    const result = useMemo(()=>{
+        if(category==""){
+            return list
+        }else{
+           return  list.filter(item=>item.category === category)
         }
-    },[category])
+    },[category,list])
+
+
 
     return(
         <>
