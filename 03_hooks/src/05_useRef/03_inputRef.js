@@ -19,7 +19,7 @@ export const LoginComponent = () =>{
 
     }
 
-    //객체에 값 넣을때...
+    //객체에 값 넣을때... 직접 접근 불가능
     const onChangeHandler =e=>{
         setForm({
             ...form,[e.target.name]:e.target.value

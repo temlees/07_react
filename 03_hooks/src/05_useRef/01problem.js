@@ -3,6 +3,8 @@ import { useState } from "react"
 export const CounterRef = () =>{
     const [counter,setCounter] = useState(0);
 
+
+    //버튼 누를때마다 렌더링
     console.log("counter 랜더링 됨")
     const increseCount=()=>{
         setCounter(counter+1);

@@ -28,6 +28,8 @@ export const UseRefCounter = () =>{
         console.log("varialbe :" + variable);
     }
 
+    //값이 증가는 하지만 렌더링이 되지않기때문에 
+    //setCounter 가 실행될때 같이 값이바뀐다
     const increseCountRef = () =>{
         countRef.current = countRef.current+1;
         console.log("카운트 Ref :" + countRef.current);

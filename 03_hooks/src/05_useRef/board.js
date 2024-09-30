@@ -65,16 +65,36 @@ export const Board =() =>{
 
    
 }
-const InputContainer = ({ title, detail,onDelete,id }) => {
+const InputContainer = ({ title, detail, onDelete, id }) => {
+
+    const [message, setMessage] = useState(""); // 댓글작성
+    const [messages, setMessages] = useState([]); //작성된 댓글 저장
+
+    const commentChange = e => {
+        setMessage(e.target.value); 
+    };
+
+    const clickComment = () => {
+        setMessages([...messages, message]); 
+        setMessage(""); 
+    };
+
     return (
         <>
             <li>
                 <strong>{title}</strong>
                 <p>{detail}</p>
+         
+            <button onClick={() => onDelete(id)}>삭제</button><br />
+            <input  placeholder="댓글 작성"  name="name"   onChange={commentChange}   value={message}  />
+            <br />
+            <button onClick={clickComment}>댓글달기</button>
+                {messages.map((current, index) => (
+                    <li key={index} style={{listStyleType: 'circle'}}>{current}</li> 
+                ))}
+            
+
             </li>
-            <button onClick={()=>onDelete(id)}>삭제</button><br/>
-            <input placeholder="댓글 작성"/><br/>
-            <button>댓글달기</button>
         </>
     );
 };

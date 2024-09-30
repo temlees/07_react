@@ -1,14 +1,19 @@
 import { useReducer } from "react";
+// reducer는 현재상태(state) 액션(action)여기서 액션은 onchangehandler에서 넘겨주는
+//{name,value} 형태의 객체 
 
 const reducer =(state,action)=>{
     console.log(action);
-
+// [action.name]은 key값 pass 만약 입력을 1234로 입력하면 action은 { name: 'pass', value: '1234' }가 됩니다.
+//state의 모든 속성을 복사하여 새로운 객체를 생성합니
     return ({...state,[action.name]: action.value})
 }
 
 export const Input = () =>{
     const [state,dispatch]= useReducer(reducer,{pass:'',passcheck:''})
 
+    //이벤트 객체(e)에서 name과 value를 추출하고,
+    // 이를 액션 객체 { name, value }로 dispatch에 전달합니다.
     const onChangeHandler = e =>dispatch(e.target);
 
 
