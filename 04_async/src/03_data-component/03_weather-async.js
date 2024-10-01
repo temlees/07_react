@@ -8,6 +8,8 @@ const WeatherAsyncComponent = () => {
     const [weather, setWeather] = useState({}); // 날씨 정보 저장
     const [wind, setWind] = useState({}); // 바람 정보 저장
 
+
+
     const getPosition = () =>{
         return(
             new Promise((resolve,reject)=>{
@@ -21,6 +23,8 @@ const WeatherAsyncComponent = () => {
             })
         )
     }
+
+    // fetch로 받아온거는 promise타입이다
 
     const getWeather = (coords) => {
         return (

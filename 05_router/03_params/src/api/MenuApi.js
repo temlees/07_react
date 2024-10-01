@@ -15,5 +15,5 @@ export function searchMenu(menuName){
 
 //디테일 페이지 함수 [0] : 필터링된 결과값에 맨 위에 것가져옴 = 중복제거
 export function getMenuDetail(menuCode){
-    return menus.filter(   menu => menu.menuCode===parseInt(menuCode))[0]
+    return menus.filter(  menu => menu.menuCode===parseInt(menuCode))[0]
 }

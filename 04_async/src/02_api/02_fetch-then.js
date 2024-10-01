@@ -1,4 +1,6 @@
-
+//response는 요청한 모든 내용 
+// json은 response로 가져온  본문에있는 내용이 key value로 나오게된다
+//cont 앞에 async붙이면 await 쓸 수 있다 
  export const ApiComponent = ()=>{
     const callApi = ()=>{
         fetch( "https://jsonplaceholder.typicode.com/users")

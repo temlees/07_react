@@ -3,17 +3,9 @@ import {useState} from "react";
 const SearchBox =({setImgUrl})=>{
     const [emojiName,setEmojiName]= useState('');
     
-    const  onChangeHandler =e=>setEmojiName(e.target.value);
-
-    const  onClickHandler= ()=>{
-        fetch("https://api.github.com/emojis")
-        .then(r=>r.json()).then(result=>setImgUrl(result[emojiName]));
-        // []표기법  emojiName 을 key로 접근
-    }
     return(
         <>
             <input type="text" onChange={onChangeHandler}/>
-            <button onClick={onClickHandler}>검색</button>
         </>
     )
 }

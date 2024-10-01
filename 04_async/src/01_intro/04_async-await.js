@@ -48,8 +48,7 @@ async function run() {
     }
 }
 
-// async await 결과값 받아오는 법
-
+// 밖에서  async await 결과값 받아오는 법
 const value = async ()=>{
     const runValue = await run();
     console.log("value :" + runValue);
