@@ -8,7 +8,12 @@ export const AddMovie = ()=>{
     }
 
     const plus = ()=>{
-        fetch()
+        movies.push({
+            id:movies.length+1,
+            title:list.title,
+            year:list.year,
+            description:list.description
+        })
     }
 
     return(
